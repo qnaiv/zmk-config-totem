@@ -132,10 +132,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp TAB  &kp ESC  &kp HASH  &kp DLLR    &kp PRCNT    &kp CARET     &kp AMPS      &kp UP      &kp SQT     &kp DQT
-        &trans   &trans   &trans    &trans      &trans       &kp C_MUTE    &kp LEFT      &kp DOWN    &kp RIGHT   &kp RA(O)
-&trans  &trans   &trans   &trans    &kp K_STOP  &trans       &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
-                          &trans    &trans      &trans       &trans        &trans        &trans
+            &kp TAB       &kp ESC       &kp HASH      &kp DLLR      &kp PRCNT       &kp CARET     &kp AMPS      &kp UP      &kp SQT     &kp DQT
+            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_MUTE    &kp LEFT      &kp DOWN    &kp RIGHT   &kp RA(O)
+&bt BT_CLR  &trans        &trans        &trans        &kp K_STOP    &trans          &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
+                                        &trans        &trans        &trans          &trans        &trans        &trans
             >;
         };
 
