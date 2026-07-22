@@ -29,7 +29,29 @@
 };
 
 / {
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        lefttab {
+            bindings = <&kp TAB>;
+            key-positions = <13 12>;
+        };
+
+        righttab {
+            bindings = <&kp TAB>;
+            key-positions = <16 17>;
+        };
+
+        leftesc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <11 12>;
+        };
+
+        bksp {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <17 18>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
