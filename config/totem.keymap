@@ -44,12 +44,17 @@
 
         leftesc {
             bindings = <&kp ESCAPE>;
-            key-positions = <11 12>;
+            key-positions = <0 1>;
         };
 
         bksp {
             bindings = <&kp BACKSPACE>;
             key-positions = <17 18>;
+        };
+
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <11 12>;
         };
     };
 
