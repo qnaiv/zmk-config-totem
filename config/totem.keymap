@@ -23,6 +23,7 @@
 #define ADJ  3
 #define TVP1 4
 #define TVP2 5
+#define BT   6
 
 &mt {
     quick-tap-ms = <100>;
@@ -52,6 +53,12 @@
         leftesc {
             bindings = <&kp ESCAPE>;
             key-positions = <0 1>;
+        };
+
+        bt_layer_combo {
+            bindings = <&mo BT>;
+            key-positions = <34 35>;
+            timeout-ms = <50>;
         };
     };
 
@@ -131,7 +138,7 @@
             bindings = <
             &kp TAB       &msc SCRL_UP  &mmv MOVE_UP    &msc SCRL_DOWN &kp PRCNT          &kp CARET       &kp AMPS      &kp UP      &kp SQT     &kp DQT
             &none         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp INT_MUHENKAN  &kp INT_HENKAN  &kp LEFT      &kp DOWN    &kp RIGHT   &kp RA(O)
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans              &kp C_VOL_DN    &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
+&trans      &trans        &trans        &trans        &trans        &trans              &kp C_VOL_DN    &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
                                         &mkp RCLK     &mkp LCLK     &trans              &trans          &trans        &trans
             >;
         };
@@ -211,6 +218,33 @@
         &trans       &kp LS(LEFT)  &kp LC(F17)   &kp LS(RIGHT)  &kp RET        &trans  &kp F4  &kp F5  &kp F6  &kp F11
 &trans  &kp J        &kp LS(C)     &kp LC(F16)   &kp LS(V)      &kp LC(F15)    &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                                    &trans        &kp LC(F12)    &kp LC(F11)    &trans  &trans  &trans
+            >;
+        };
+
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        bt_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+
+            label = "BT";
+
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            // Activated only while holding both space thumb keys together.
+            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+            //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+            // ┃ BT CLEAR  ┃  BT SEL0  ┃  BT SEL1  ┃  BT SEL2  ┃  BT SEL3  ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
+            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+
+            bindings = <
+            &trans      &trans        &trans        &trans        &trans              &trans          &trans        &trans      &trans      &trans
+            &trans      &trans        &trans        &trans        &trans              &trans          &trans        &trans      &trans      &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans              &trans          &trans        &trans      &trans      &trans     &trans
+                                        &trans        &trans        &trans              &trans          &trans        &trans
             >;
         };
     };
