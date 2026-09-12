@@ -10,6 +10,8 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -27,6 +29,10 @@
     global-quick-tap;
     flavor = "tap-preferred";
     tapping-term-ms = <170>;
+};
+
+&mmv {
+    time-to-max-speed-ms = <150>;
 };
 
 / {
@@ -113,7 +119,7 @@
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃     !     ┃     @     ┃  M UP     ┃     $     ┃     %     ┃   ┃     ˆ     ┃     &     ┃     Ü     ┃     '     ┃     "     ┃
+            //             ┃     !     ┃  SCRL UP  ┃  M UP     ┃ SCRL DOWN ┃     %     ┃   ┃     ˆ     ┃     &     ┃     Ü     ┃     '     ┃     "     ┃
             //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
             //             ┃     Ä     ┃  M LEFT   ┃  M DOWN   ┃  M RIGHT  ┃           ┃   ┃   MUTE    ┃   YEN     ┃   EURO    ┃  POUND    ┃     Ö     ┃
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
@@ -123,10 +129,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-            &kp TAB       &kp ESC       &mmv MOVE_UP    &kp DLLR      &kp PRCNT           &kp CARET       &kp AMPS      &kp UP      &kp SQT     &kp DQT
+            &kp TAB       &msc SCRL_UP  &mmv MOVE_UP    &msc SCRL_DOWN &kp PRCNT          &kp CARET       &kp AMPS      &kp UP      &kp SQT     &kp DQT
             &none         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp INT_MUHENKAN  &kp INT_HENKAN  &kp LEFT      &kp DOWN    &kp RIGHT   &kp RA(O)
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans              &kp C_VOL_DN    &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
-                                        &mkp RCLK     &mkp LCLK     &msc SCRL_UP        &trans          &trans        &trans
+                                        &mkp RCLK     &mkp LCLK     &trans              &trans          &trans        &trans
             >;
         };
 
